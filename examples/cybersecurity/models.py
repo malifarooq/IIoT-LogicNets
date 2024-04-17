@@ -30,9 +30,9 @@ from logicnets.quant import QuantBrevitasActivation
 from logicnets.nn import SparseLinearNeq, ScalarBiasScale, RandomFixedSparsityMask2D
 from logicnets.init import random_restrict_fanin
 
-class UnswNb15NeqModel(nn.Module):
+class EdgeIIoTNeqModel(nn.Module):
     def __init__(self, model_config):
-        super(UnswNb15NeqModel, self).__init__()
+        super(EdgeIIoTNeqModel, self).__init__()
         self.model_config = model_config
         self.num_neurons = [model_config["input_length"]] + model_config["hidden_layers"] + [model_config["output_length"]]
         layer_list = []
@@ -137,9 +137,9 @@ class UnswNb15NeqModel(nn.Module):
                 x = self.module_list[-1].output_quant.apply_post_transforms(x * output_scale)
         return x
 
-class UnswNb15LutModel(UnswNb15NeqModel):
+class EdgeIIoTLutModel(EdgeIIoTNeqModel):
     pass
 
-class UnswNb15VerilogModel(UnswNb15NeqModel):
+class EdgeIIoTVerilogModel(EdgeIIoTNeqModel):
     pass
 
