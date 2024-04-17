@@ -30,96 +30,52 @@ from models import EdgeIIoTNeqModel
 
 # TODO: Replace default configs with YAML files.
 configs = {
-    "nid-s": {
-        "hidden_layers": [593, 100],
+    "cybernid": {
+        "hidden_layers": [128, 32],
         "input_bitwidth": 1,
         "hidden_bitwidth": 2,
         "output_bitwidth": 2,
-        "input_fanin": 7,
-        "hidden_fanin": 7,
+        "input_fanin": 6,
+        "hidden_fanin": 6,
         "output_fanin": 7,
         "weight_decay": 0.0,
-        "batch_size": 1024,
+        "batch_size": 256,
         "epochs": 100,
-        "learning_rate": 1e-1,
+        "learning_rate": 1e-2,
         "seed": 109,
         "checkpoint": None,
     },
-    "nid-s-comp": {
-        "hidden_layers": [49, 7],
+    
+    "cybernid-sparse": {
+        "hidden_layers": [128, 32],
         "input_bitwidth": 1,
         "hidden_bitwidth": 2,
         "output_bitwidth": 2,
-        "input_fanin": 7,
-        "hidden_fanin": 7,
+        "input_fanin": 5,
+        "hidden_fanin": 4,
         "output_fanin": 7,
         "weight_decay": 0.0,
-        "batch_size": 1024,
-        "epochs": 100,
-        "learning_rate": 1e-1,
-        "seed": 81,
+        "batch_size": 256,
+        "epochs": 5	,
+        "learning_rate": 1e-2,
+        "seed": 109,
         "checkpoint": None,
-    },
-    "nid-m": {
-        "hidden_layers": [593, 256, 128, 128],
+        },
+    "cybernid-sparse-big": {
+        "hidden_layers": [593, 100, 20],
         "input_bitwidth": 1,
         "hidden_bitwidth": 2,
         "output_bitwidth": 2,
-        "input_fanin": 7,
-        "hidden_fanin": 7,
+        "input_fanin": 3,
+        "hidden_fanin": 3,
         "output_fanin": 7,
         "weight_decay": 0.0,
-        "batch_size": 1024,
-        "epochs": 100,
-        "learning_rate": 1e-1,
-        "seed": 196,
+        "batch_size": 256,
+        "epochs": 5	,
+        "learning_rate": 1e-2,
+        "seed": 109,
         "checkpoint": None,
-    },
-    "nid-m-comp": {
-        "hidden_layers": [593, 256, 49, 7],
-        "input_bitwidth": 1,
-        "hidden_bitwidth": 2,
-        "output_bitwidth": 2,
-        "input_fanin": 7,
-        "hidden_fanin": 7,
-        "output_fanin": 7,
-        "weight_decay": 0.0,
-        "batch_size": 1024,
-        "epochs": 100,
-        "learning_rate": 1e-1,
-        "seed": 40,
-        "checkpoint": None,
-    },
-    "nid-l": {
-        "hidden_layers": [593, 100, 100, 100],
-        "input_bitwidth": 1,
-        "hidden_bitwidth": 3,
-        "output_bitwidth": 3,
-        "input_fanin": 7,
-        "hidden_fanin": 5,
-        "output_fanin": 5,
-        "weight_decay": 0.0,
-        "batch_size": 1024,
-        "epochs": 100,
-        "learning_rate": 1e-1,
-        "seed": 2,
-        "checkpoint": None,
-    },
-    "nid-l-comp": {
-        "hidden_layers": [593, 100, 25, 5],
-        "input_bitwidth": 1,
-        "hidden_bitwidth": 3,
-        "output_bitwidth": 3,
-        "input_fanin": 7,
-        "hidden_fanin": 5,
-        "output_fanin": 5,
-        "weight_decay": 0.0,
-        "batch_size": 1024,
-        "epochs": 100,
-        "learning_rate": 1e-1,
-        "seed": 83,
-        "checkpoint": None,
-    },
+    }
 }
 
 # A dictionary, so we can set some defaults if necessary
@@ -221,7 +177,7 @@ def train(model, datasets, train_cfg, options):
 
         accLoss /= len(train_loader.dataset)
         accuracy = 100.0*correct / len(train_loader.dataset)
-        print(f"Epoch: {epoch}/{num_epochs}\tTrain Acc (%): {accuracy.detach().cpu().numpy():.2f}\tTrain Loss: {accLoss.detach().cpu().numpy():.3e}")
+        print(f"Epoch: {epoch}/{num_epochs}\tTrain Acc (%): {accuracy.detach().cpu().numpy():.4f}\tTrain Loss: {accLoss.detach().cpu().numpy():.3e}")
         #for g in optimizer.param_groups:
         #        print("LR: {:.6f} ".format(g['lr']))
         #        print("LR: {:.6f} ".format(g['weight_decay']))
@@ -240,7 +196,7 @@ def train(model, datasets, train_cfg, options):
             maxAcc = val_accuracy
         writer.add_scalar('val_accuracy', val_accuracy, (epoch+1)*steps)
         writer.add_scalar('test_accuracy', test_accuracy, (epoch+1)*steps)
-        print(f"Epoch: {epoch}/{num_epochs}\tValid Acc (%): {val_accuracy:.2f}\tTest Acc: {test_accuracy:.2f}")
+        print(f"Epoch: {epoch}/{num_epochs}\tValid Acc (%): {val_accuracy:.4f}\tTest Acc: {test_accuracy:.4f}")
 
 def test(model, dataset_loader, cuda, thresh=0.75):
     model.eval()
@@ -330,14 +286,14 @@ if __name__ == "__main__":
     # Fetch the datasets
     dataset = {}
     dataset['train'] = get_preqnt_dataset(dataset_cfg['dataset_file'], split="train")
-    dataset['valid'] = get_preqnt_dataset(dataset_cfg['dataset_file'], split="test") # This dataset is so small, we'll just use the test set as the validation set, otherwise we may have too few trainings examples to converge.
+    dataset['valid'] = get_preqnt_dataset(dataset_cfg['dataset_file'], split="val") # This dataset is so small, we'll just use the test set as the validation set, otherwise we may have too few trainings examples to converge.
     dataset['test'] = get_preqnt_dataset(dataset_cfg['dataset_file'], split="test")
 
     # Instantiate model
     x, y = dataset['train'][0]
     model_cfg['input_length'] = len(x)
     model_cfg['output_length'] = 1
-    model = EdgeIIoTNeqModel(model_cfg)
+    model = UnswNb15NeqModel(model_cfg)
     if options_cfg['checkpoint'] is not None:
         print(f"Loading pre-trained checkpoint {options_cfg['checkpoint']}")
         checkpoint = torch.load(options_cfg['checkpoint'], map_location='cpu')
