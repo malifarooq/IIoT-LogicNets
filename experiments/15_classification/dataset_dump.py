@@ -11,42 +11,28 @@ ge#  Copyright (C) 2021 Xilinx, Inc
 #  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
-
 import os
 from argparse import ArgumentParser
-from functools import reduce
 
 import torch
 from torch.utils.data import DataLoader
 
-from logicnets.nn import    generate_truth_tables, \
-                            lut_inference, \
-                            module_list_to_verilog_module
-from logicnets.synthesis import synthesize_and_get_resource_counts
-
-from train import configs, model_config, dataset_config, other_options, test
-from dataset import get_preqnt_dataset
+from dataset import EdgeIIoTDataset
 from models import EdgeIIoTNeqModel
+from train import test
 
 def dump_io(model, data_loader, input_file, output_file):
-    input_quant = model.module_list[0].input_quant
-    _, input_bitwidth = input_quant.get_scale_factor_bits()
-    input_bitwidth = int(input_bitwidth)
-    total_input_bits = model.module_list[0].in_features*input_bitwidth
-    input_quant.bin_output()
     with open(input_file, 'w') as i_f, open(output_file, 'w') as o_f:
         for data, target in data_loader:
-            x = input_quant(data)
+            x = data
             indices = target
             for i in range(x.shape[0]):
                 x_i = x[i,:]
-                xv_i = list(map(lambda z: input_quant.get_bin_str(z), x_i))
-                xvc_i = reduce(lambda a,b: a+b, xv_i[::-1])
-                i_f.write(f"{int(xvc_i,2):0{int(total_input_bits)}b}\n")
+                i_f.write(f"{x_i}\n")
                 o_f.write(f"{int(indices[i])}\n")
 
 if __name__ == "__main__":
-    parser = ArgumentParser(description="Dump the train and test datasets (after input quantization) into text files")
+        parser = ArgumentParser(description="Dump the train and test datasets (after input quantization) into text files")
     parser.add_argument('--arch', type=str, choices=configs.keys(), default="nid-s",
         help="Specific the neural network model to use (default: %(default)s)")
     parser.add_argument('--batch-size', type=int, default=None, metavar='N',
@@ -95,35 +81,30 @@ if __name__ == "__main__":
             continue
         options_cfg[k] = config[k]
 
-    # Fetch the datasets
+     # Load dataset
     dataset = {}
-    dataset['train'] = get_preqnt_dataset(dataset_cfg['dataset_file'], split="train")
-    dataset['test'] = get_preqnt_dataset(dataset_cfg['dataset_file'], split="test")
-    train_loader = DataLoader(dataset["train"], batch_size=config['batch_size'], shuffle=False)
-    test_loader = DataLoader(dataset["test"], batch_size=config['batch_size'], shuffle=False)
+    dataset['train'] = get_preqnt_dataset(os.path.join(args.dataset_path, "train_data.npz"), split="train")
+    dataset['test'] = get_preqnt_dataset(os.path.join(args.dataset_path, "test_data.npz"), split="test")
+    train_loader = DataLoader(dataset["train"], batch_size=1, shuffle=False)
+    test_loader = DataLoader(dataset["test"], batch_size=1, shuffle=False)
 
     # Instantiate the PyTorch model
     x, y = dataset["train"][0]
-    model_cfg['input_length'] = len(x)
-    model_cfg['output_length'] = 1
-    model = EdgeIIoTNeqModel(model_cfg)
+    model = EdgeIIoTNeqModel(input_length=x.size(0), output_length=1)
 
     # Load the model weights
-    checkpoint = torch.load(options_cfg['checkpoint'], map_location='cpu')
+    checkpoint = torch.load(args.checkpoint, map_location='cpu')
     model.load_state_dict(checkpoint['model_dict'])
 
     # Test the PyTorch model
-    print("Running inference on baseline model...")
+    print("Running inference on the model...")
     model.eval()
     baseline_accuracy = test(model, test_loader, cuda=False)
     print("Baseline accuracy: %f" % (baseline_accuracy))
 
-    # Run preprocessing on training set.
-    train_input_file = config['log_dir'] + "/train_input.txt"
-    train_output_file = config['log_dir'] + "/train_output.txt"
-    test_input_file = config['log_dir'] + "/test_input.txt"
-    test_output_file = config['log_dir'] + "/test_output.txt"
+    # Dump I/O to text files
     print(f"Dumping train I/O to {train_input_file} and {train_output_file}")
     dump_io(model, train_loader, train_input_file, train_output_file)
     print(f"Dumping test I/O to {test_input_file} and {test_output_file}")
     dump_io(model, test_loader, test_input_file, test_output_file)
+
