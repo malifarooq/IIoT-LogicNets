@@ -26,7 +26,7 @@ from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 
 from dataset import get_preqnt_dataset
-from models import UnswNb15NeqModel
+from models import EdgeIIoTNeqModel
 
 # TODO: Replace default configs with YAML files.
 configs = {
@@ -289,7 +289,7 @@ if __name__ == "__main__":
         help="A list of hidden layer neuron sizes (default: %(default)s)")
     parser.add_argument('--log-dir', type=str, default='./log',
         help="A location to store the log output of the training run and the output model (default: %(default)s)")
-    parser.add_argument('--dataset-file', type=str, default='data/unsw_nb15_binarized.npz',
+    parser.add_argument('--dataset-file', type=str, default='data/edgeiiot.npz',
         help="The file to use as the dataset input (default: %(default)s)")
     parser.add_argument('--checkpoint', type=str, default=None,
         help="Retrain the model from a previous checkpoint (default: %(default)s)")
@@ -337,7 +337,7 @@ if __name__ == "__main__":
     x, y = dataset['train'][0]
     model_cfg['input_length'] = len(x)
     model_cfg['output_length'] = 1
-    model = UnswNb15NeqModel(model_cfg)
+    model = EdgeIIoTNeqModel(model_cfg)
     if options_cfg['checkpoint'] is not None:
         print(f"Loading pre-trained checkpoint {options_cfg['checkpoint']}")
         checkpoint = torch.load(options_cfg['checkpoint'], map_location='cpu')
