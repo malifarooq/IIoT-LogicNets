@@ -16,17 +16,17 @@ import numpy as np
 import torch
 from torch.utils.data import TensorDataset
 
-#! wget -O unsw_nb15_binarized.npz https://zenodo.org/record/4519767/files/unsw_nb15_binarized.npz?download=1
 def get_preqnt_dataset(data_file: str, split: str):
-    unsw_nb15_data = np.load(data_file)
-    splits = ["train", "test"]
+    edge_iiot_data = np.load(data_file)
+    splits = ["train", "test", "val"]
     if not split in splits:
         print(f"Invalid dataset split: {split}")
         assert(False)
-    part_data = unsw_nb15_data[split].astype(np.float32)
+    part_data = edge_iiot_data[split].astype(np.float32)
     part_data = torch.from_numpy(part_data)
     part_data_in = part_data[:, :-1]
     part_data_out = part_data[:, -1]
     return TensorDataset(part_data_in, part_data_out)
+
 
 
