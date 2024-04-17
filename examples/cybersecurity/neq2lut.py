@@ -26,7 +26,7 @@ from logicnets.util import proc_postsynth_file
 
 from train import configs, model_config, dataset_config, test
 from dataset import get_preqnt_dataset
-from models import UnswNb15NeqModel, UnswNb15LutModel
+from models import EdgeIIoTNeqModel, EdgeIIoTLutModel
 
 other_options = {
     "cuda": None,
@@ -62,7 +62,7 @@ if __name__ == "__main__":
         help="Target clock frequency to use during Vivado synthesis (default: %(default)s)")
     parser.add_argument('--dataset-split', type=str, default='test', choices=['train', 'test'],
         help="Dataset to use for evaluation (default: %(default)s)")
-    parser.add_argument('--dataset-file', type=str, default='data/unsw_nb15_binarized.npz',
+    parser.add_argument('--dataset-file', type=str, default='data/edgeiiot.npz',
         help="The file to use as the dataset input (default: %(default)s)")
     parser.add_argument('--log-dir', type=str, default='./log',
         help="A location to store the log output of the training run and the output model (default: %(default)s)")
@@ -111,7 +111,7 @@ if __name__ == "__main__":
     x, y = dataset[args.dataset_split][0]
     model_cfg['input_length'] = len(x)
     model_cfg['output_length'] = 1
-    model = UnswNb15NeqModel(model_cfg)
+    model = EdgeIIoTNeqModel(model_cfg)
 
     # Load the model weights
     checkpoint = torch.load(options_cfg['checkpoint'], map_location='cpu')
@@ -124,7 +124,7 @@ if __name__ == "__main__":
     print("Baseline accuracy: %f" % (baseline_accuracy))
 
     # Instantiate LUT-based model
-    lut_model = UnswNb15LutModel(model_cfg)
+    lut_model = EdgeIIoTLutModel(model_cfg)
     lut_model.load_state_dict(checkpoint['model_dict'])
 
     # Generate the truth tables in the LUT module
