@@ -245,7 +245,7 @@ if __name__ == "__main__":
         help="A list of hidden layer neuron sizes (default: %(default)s)")
     parser.add_argument('--log-dir', type=str, default='./log',
         help="A location to store the log output of the training run and the output model (default: %(default)s)")
-    parser.add_argument('--dataset-file', type=str, default='data/edgeiiot.npz',
+    parser.add_argument('--dataset-path', type=str, default='data',
         help="The file to use as the dataset input (default: %(default)s)")
     parser.add_argument('--checkpoint', type=str, default=None,
         help="Retrain the model from a previous checkpoint (default: %(default)s)")
@@ -285,9 +285,9 @@ if __name__ == "__main__":
 
     # Fetch the datasets
     dataset = {}
-    dataset['train'] = get_preqnt_dataset(dataset_cfg['dataset_file'], split="train")
-    dataset['valid'] = get_preqnt_dataset(dataset_cfg['dataset_file'], split="val") # This dataset is so small, we'll just use the test set as the validation set, otherwise we may have too few trainings examples to converge.
-    dataset['test'] = get_preqnt_dataset(dataset_cfg['dataset_file'], split="test")
+    dataset['train'] = get_preqnt_dataset(dataset_cfg['dataset_path'], split="train")
+    dataset['valid'] = get_preqnt_dataset(dataset_cfg['dataset_path'], split="val") # This dataset is so small, we'll just use the test set as the validation set, otherwise we may have too few trainings examples to converge.
+    dataset['test'] = get_preqnt_dataset(dataset_cfg['dataset_path'], split="test")
 
     # Instantiate model
     x, y = dataset['train'][0]
