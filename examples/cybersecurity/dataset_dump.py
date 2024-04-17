@@ -1,4 +1,4 @@
-#  Copyright (C) 2021 Xilinx, Inc
+ge#  Copyright (C) 2021 Xilinx, Inc
 #
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ from logicnets.synthesis import synthesize_and_get_resource_counts
 
 from train import configs, model_config, dataset_config, other_options, test
 from dataset import get_preqnt_dataset
-from models import UnswNb15NeqModel
+from models import EdgeIIoTNeqModel
 
 def dump_io(model, data_loader, input_file, output_file):
     input_quant = model.module_list[0].input_quant
@@ -65,7 +65,7 @@ if __name__ == "__main__":
         help="Fanin to use at the output (default: %(default)s)")
     parser.add_argument('--hidden-layers', nargs='+', type=int, default=None,
         help="A list of hidden layer neuron sizes (default: %(default)s)")
-    parser.add_argument('--dataset-file', type=str, default='data/unsw_nb15_binarized.npz',
+    parser.add_argument('--dataset-file', type=str, default='data/edgeiiot.npz',
         help="The file to use as the dataset input (default: %(default)s)")
     parser.add_argument('--log-dir', type=str, default='./log',
         help="A location to store the output I/O text files (default: %(default)s)")
@@ -106,7 +106,7 @@ if __name__ == "__main__":
     x, y = dataset["train"][0]
     model_cfg['input_length'] = len(x)
     model_cfg['output_length'] = 1
-    model = UnswNb15NeqModel(model_cfg)
+    model = EdgeIIoTNeqModel(model_cfg)
 
     # Load the model weights
     checkpoint = torch.load(options_cfg['checkpoint'], map_location='cpu')
