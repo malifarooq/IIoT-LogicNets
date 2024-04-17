@@ -17,16 +17,26 @@ import torch
 from torch.utils.data import TensorDataset
 
 def get_preqnt_dataset(data_file: str, split: str):
-    edge_iiot_data = np.load(data_file)
     splits = ["train", "test", "val"]
-    if not split in splits:
+    if split not in splits:
         print(f"Invalid dataset split: {split}")
-        assert(False)
-    part_data = edge_iiot_data[split].astype(np.float32)
-    part_data = torch.from_numpy(part_data)
-    part_data_in = part_data[:, :-1]
-    part_data_out = part_data[:, -1]
-    return TensorDataset(part_data_in, part_data_out)
+        assert False
+    
+    if split == "train":
+        # Load train data
+        data = np.load(data_file + "/train_data.npz")
+    elif split == "test":
+        # Load test data
+        data = np.load(data_file + "/test_data.npz")
+    elif split == "val":
+        # Load validation data
+        data = np.load(data_file + "/val_data.npz")
+
+    X = torch.from_numpy(data["features"]).float()
+    y = torch.from_numpy(data["labels"]).float()
+
+    return TensorDataset(X, y)
+
 
 
 
