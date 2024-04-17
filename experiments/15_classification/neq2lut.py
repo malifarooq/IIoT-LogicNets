@@ -104,7 +104,7 @@ if __name__ == "__main__":
 
     # Fetch the test set
     dataset = {}
-    dataset[args.dataset_split] = get_preqnt_dataset(dataset_cfg['dataset_file'], split=args.dataset_split)
+    dataset[args.dataset_split] = get_preqnt_dataset(args.dataset_path, split= "test")
     test_loader = DataLoader(dataset[args.dataset_split], batch_size=config['batch_size'], shuffle=False)
 
     # Instantiate the PyTorch model
