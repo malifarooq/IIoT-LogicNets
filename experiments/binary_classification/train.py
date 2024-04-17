@@ -293,7 +293,7 @@ if __name__ == "__main__":
     x, y = dataset['train'][0]
     model_cfg['input_length'] = len(x)
     model_cfg['output_length'] = 1
-    model = UnswNb15NeqModel(model_cfg)
+    model = EdgeIIoTModel(model_cfg)
     if options_cfg['checkpoint'] is not None:
         print(f"Loading pre-trained checkpoint {options_cfg['checkpoint']}")
         checkpoint = torch.load(options_cfg['checkpoint'], map_location='cpu')
