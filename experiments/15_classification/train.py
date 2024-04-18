@@ -204,28 +204,18 @@ def train(model, datasets, train_cfg, options):
 def test(model, dataset_loader, cuda):
     with torch.no_grad():
         model.eval()
-        entire_prob = None
-        golden_ref = None
         correct = 0
-        accLoss = 0.0
         for batch_idx, (data, target) in enumerate(dataset_loader):
             if cuda:
                 data, target = data.cuda(), target.cuda()
             output = model(data)
-            prob = F.softmax(output, dim=1)
             pred = output.detach().max(1, keepdim=True)[1]
             target_label = torch.max(target.detach(), 1, keepdim=True)[1]
             curCorrect = pred.eq(target_label).long().sum()
-            curAcc = 100.0*curCorrect / len(data)
             correct += curCorrect
-            if batch_idx == 0:
-                entire_prob = prob
-                golden_ref = target_label
-            else:
-                entire_prob = torch.cat((entire_prob, prob), dim=0)
-                golden_ref = torch.cat((golden_ref, target_label))
-        accuracy = 100*float(correct) / len(dataset_loader.dataset)
+        accuracy = 100 * float(correct) / len(dataset_loader.dataset)
         return accuracy
+
 
 
 if __name__ == "__main__":
