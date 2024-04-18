@@ -1,4 +1,4 @@
-#IIoT-LogicNets: LogicNets for IIoT Network Intrusion Detection
+# IIoT-LogicNets: LogicNets for IIoT Network Intrusion Detection
 
 LogicNets is a methodology for designing, training and deploying sparse,
 quantized neural networks based on hardware building blocks.
