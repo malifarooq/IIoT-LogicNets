@@ -62,7 +62,7 @@ if __name__ == "__main__":
         help="Target clock frequency to use during Vivado synthesis (default: %(default)s)")
     parser.add_argument('--dataset-split', type=str, default='test', choices=['train', 'test'],
         help="Dataset to use for evaluation (default: %(default)s)")
-    parser.add_argument('--dataset-file', type=str, default='data/edgeiiot.npz',
+    parser.add_argument('--dataset-path', type=str, default='data',
         help="The file to use as the dataset input (default: %(default)s)")
     parser.add_argument('--log-dir', type=str, default='./log',
         help="A location to store the log output of the training run and the output model (default: %(default)s)")
@@ -110,7 +110,7 @@ if __name__ == "__main__":
     # Instantiate the PyTorch model
     x, y = dataset[args.dataset_split][0]
     model_cfg['input_length'] = len(x)
-    model_cfg['output_length'] = 1
+    model_cfg['output_length'] = len(y)
     model = EdgeIIoTNeqModel(model_cfg)
 
     # Load the model weights

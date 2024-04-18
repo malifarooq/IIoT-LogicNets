@@ -22,8 +22,10 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
+import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
+
 
 from dataset import get_preqnt_dataset
 from models import EdgeIIoTNeqModel
@@ -98,7 +100,7 @@ training_config = {
 }
 
 dataset_config = {
-    "dataset_file": None,
+    "dataset_path": None,
 }
 
 other_options = {
@@ -137,7 +139,7 @@ def train(model, datasets, train_cfg, options):
     scheduler = optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, T_0=steps*100, T_mult=1)
 
     # Configure criterion
-    criterion = nn.BCEWithLogitsLoss()
+    criterion = nn.CrossEntropyLoss()
 
     # Push the model to the GPU, if necessary
     if options["cuda"]:
@@ -159,9 +161,10 @@ def train(model, datasets, train_cfg, options):
                 data, target = data.cuda(), target.cuda()
             optimizer.zero_grad()
             output = model(data)
-            loss = criterion(output, target.unsqueeze(1))
-            pred = (torch.sigmoid(output.detach()) > 0.75) * 1
-            curCorrect = pred.eq(target.unsqueeze(1)).long().sum()
+            loss = criterion(output, torch.max(target, 1)[1])
+            pred = output.detach().max(1, keepdim=True)[1]
+            target_label = torch.max(target.detach(), 1, keepdim=True)[1]
+            curCorrect = pred.eq(target_label).long().sum()
             curAcc = 100.0*curCorrect / len(data)
             correct += curCorrect
             accLoss += loss.detach()*len(data)
@@ -177,7 +180,7 @@ def train(model, datasets, train_cfg, options):
 
         accLoss /= len(train_loader.dataset)
         accuracy = 100.0*correct / len(train_loader.dataset)
-        print(f"Epoch: {epoch}/{num_epochs}\tTrain Acc (%): {accuracy.detach().cpu().numpy():.4f}\tTrain Loss: {accLoss.detach().cpu().numpy():.3e}")
+        print(f"Epoch: {epoch}/{num_epochs}\tTrain Acc (%): {accuracy.detach().cpu().numpy():.2f}\tTrain Loss: {accLoss.detach().cpu().numpy():.3e}")
         #for g in optimizer.param_groups:
         #        print("LR: {:.6f} ".format(g['lr']))
         #        print("LR: {:.6f} ".format(g['weight_decay']))
@@ -196,22 +199,34 @@ def train(model, datasets, train_cfg, options):
             maxAcc = val_accuracy
         writer.add_scalar('val_accuracy', val_accuracy, (epoch+1)*steps)
         writer.add_scalar('test_accuracy', test_accuracy, (epoch+1)*steps)
-        print(f"Epoch: {epoch}/{num_epochs}\tValid Acc (%): {val_accuracy:.4f}\tTest Acc: {test_accuracy:.4f}")
+        print(f"Epoch: {epoch}/{num_epochs}\tValid Acc (%): {val_accuracy:.2f}\tTest Acc: {test_accuracy:.2f}")
 
-def test(model, dataset_loader, cuda, thresh=0.75):
-    model.eval()
-    correct = 0
-    accLoss = 0.0
-    for batch_idx, (data, target) in enumerate(dataset_loader):
-        if cuda:
-            data, target = data.cuda(), target.cuda()
-        output = model(data)
-        pred = (torch.sigmoid(output.detach()) > thresh) * 1
-        curCorrect = pred.eq(target.unsqueeze(1)).long().sum()
-        curAcc = 100.0*curCorrect / len(data)
-        correct += curCorrect
-    accuracy = 100*float(correct) / len(dataset_loader.dataset)
-    return accuracy
+def test(model, dataset_loader, cuda):
+    with torch.no_grad():
+        model.eval()
+        entire_prob = None
+        golden_ref = None
+        correct = 0
+        accLoss = 0.0
+        for batch_idx, (data, target) in enumerate(dataset_loader):
+            if cuda:
+                data, target = data.cuda(), target.cuda()
+            output = model(data)
+            prob = F.softmax(output, dim=1)
+            pred = output.detach().max(1, keepdim=True)[1]
+            target_label = torch.max(target.detach(), 1, keepdim=True)[1]
+            curCorrect = pred.eq(target_label).long().sum()
+            curAcc = 100.0*curCorrect / len(data)
+            correct += curCorrect
+            if batch_idx == 0:
+                entire_prob = prob
+                golden_ref = target_label
+            else:
+                entire_prob = torch.cat((entire_prob, prob), dim=0)
+                golden_ref = torch.cat((golden_ref, target_label))
+        accuracy = 100*float(correct) / len(dataset_loader.dataset)
+        return accuracy
+
 
 if __name__ == "__main__":
     parser = ArgumentParser(description="LogicNets Network Intrusion Detection Example")
@@ -292,8 +307,9 @@ if __name__ == "__main__":
     # Instantiate model
     x, y = dataset['train'][0]
     model_cfg['input_length'] = len(x)
-    model_cfg['output_length'] = 1
-    model = EdgeIIoTModel(model_cfg)
+    model_cfg['output_length'] = len(y)
+    print(y)
+    model = EdgeIIoTNeqModel(model_cfg)
     if options_cfg['checkpoint'] is not None:
         print(f"Loading pre-trained checkpoint {options_cfg['checkpoint']}")
         checkpoint = torch.load(options_cfg['checkpoint'], map_location='cpu')
