@@ -162,6 +162,7 @@ if __name__ == "__main__":
 
     print("Running out-of-context synthesis")
     ret = synthesize_and_get_resource_counts(options_cfg["log_dir"], "logicnet", fpga_part="xcu280-fsvh2892-2L-e", clk_period_ns=args.clock_period, post_synthesis = 1)
+    print(ret)
 
     if args.simulate_post_synthesis_verilog:
         print("Running post-synthesis inference simulation of Verilog-based model...")

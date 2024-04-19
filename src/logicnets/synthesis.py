@@ -43,7 +43,7 @@ def synthesize_and_get_resource_counts(verilog_dir, top_name, fpga_part = "xcku3
     ret["vivado_proj_folder"] = vivado_proj_folder
     for res_line in res_data:
         res_fields = res_line.split("=")
-        print(res_fields)
+        #print(res_fields)
         try:
             ret[res_fields[0]] = float(res_fields[1])
         except ValueError:
@@ -54,4 +54,5 @@ def synthesize_and_get_resource_counts(verilog_dir, top_name, fpga_part = "xcku3
         ret["fmax_mhz"] = 0
     else:
         ret["fmax_mhz"] = 1000.0 / (clk_period_ns - ret["WNS"])
+        
     return ret
