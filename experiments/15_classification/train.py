@@ -25,6 +25,7 @@ import torch.optim as optim
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
+from sklearn.metrics import f1_score, confusion_matrix
 
 
 from dataset import get_preqnt_dataset
@@ -201,9 +202,12 @@ def train(model, datasets, train_cfg, options):
         writer.add_scalar('test_accuracy', test_accuracy, (epoch+1)*steps)
         print(f"Epoch: {epoch}/{num_epochs}\tValid Acc (%): {val_accuracy:.2f}\tTest Acc: {test_accuracy:.2f}")
 
-def test(model, dataset_loader, cuda):
+
+def test(model, dataset_loader, cuda, disp=0):
     with torch.no_grad():
         model.eval()
+        all_preds = []
+        all_targets = []
         correct = 0
         for batch_idx, (data, target) in enumerate(dataset_loader):
             if cuda:
@@ -213,8 +217,23 @@ def test(model, dataset_loader, cuda):
             target_label = torch.max(target.detach(), 1, keepdim=True)[1]
             curCorrect = pred.eq(target_label).long().sum()
             correct += curCorrect
+            all_preds.extend(pred.cpu().numpy())
+            all_targets.extend(target_label.cpu().numpy())
+        
         accuracy = 100 * float(correct) / len(dataset_loader.dataset)
+        
+        if disp == 1:
+            # Calculate F1 score
+            f1 = f1_score(all_targets, all_preds, average='weighted')
+            #print("F1 Score:", f1)
+            
+            # Write confusion matrix to file
+            cm = confusion_matrix(all_targets, all_preds)
+            #print(cm)
+            return accuracy ,f1, cm
+            
         return accuracy
+
 
 
 
