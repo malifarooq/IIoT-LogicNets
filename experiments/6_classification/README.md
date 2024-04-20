@@ -41,13 +41,14 @@ python neq2lut.py --arch <nid-s|nid-m|nid-l> --checkpoint ./<nid_s|nid_m|nid_l>/
 ## Results
 
 Your results may vary slightly, depending on your system configuration.
-The following results are attained when training on a CPU and synthesising with Vivado 2019.2:
+The following results are attained when training on a CPU and synthesising with Vivado 2020.1:
+Epochs: 5, Batch Size: 256, Learning Rate: 10e-2
 
-| Network Architecture  | Test Accuracy (%) | LUTs  | Flip Flops    | Fmax (Mhz)    | Latency (Cycles)  |
-| --------------------- | ----------------- | ----- | ------------- | ------------- | ----------------- |
-| NID-S                 |              90.5 |   650 |           515 |        758.15 |                 3 |
-| NID-M                 |              92.6 |  1649 |          1024 |        839.63 |                 5 |
-| NID-L                 |              92.9 |  8106 |          1901 |        498.26 |                 5 |
+| Network Architecture  | Test Accuracy (%) | F1-Score (%) | LUTs  | Flip Flops    | Fmax (Mhz)    | Latency (Cycles)  |
+| --------------------- | ----------------- | ------------ | ----- | ------------- | ------------- | ----------------- |
+| cybernid              |              99.72|         99.71|   1434|           411 |        887.31 |                 3 |
+| cybernid-sparse       |              99.19|         99.14|    958|           293 |       1420.45 |                 3 |
+| cybernid-sparse-big   |              99.12|         99.04|    843|           268 |       1375.52 |                 4 |
 
 Note, the model architectures reflect the architectures described in our [FPL'20 paper](https://arxiv.org/abs/2004.03021).
 
