@@ -43,7 +43,7 @@ configs = {
         "output_fanin": 7,
         "weight_decay": 0.0,
         "batch_size": 256,
-        "epochs": 100,
+        "epochs": 5,
         "learning_rate": 1e-2,
         "seed": 109,
         "checkpoint": None,
