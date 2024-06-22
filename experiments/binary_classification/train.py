@@ -24,6 +24,7 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
+from sklearn.metrics import f1_score, confusion_matrix
 
 from dataset import get_preqnt_dataset
 from models import EdgeIIoTNeqModel
@@ -40,8 +41,8 @@ configs = {
         "output_fanin": 7,
         "weight_decay": 0.0,
         "batch_size": 256,
-        "epochs": 100,
-        "learning_rate": 1e-2,
+        "epochs": 5,
+        "learning_rate": 1e-3,
         "seed": 109,
         "checkpoint": None,
     },
@@ -51,28 +52,43 @@ configs = {
         "input_bitwidth": 1,
         "hidden_bitwidth": 2,
         "output_bitwidth": 2,
-        "input_fanin": 5,
+        "input_fanin": 4,
         "hidden_fanin": 4,
         "output_fanin": 7,
         "weight_decay": 0.0,
         "batch_size": 256,
         "epochs": 5	,
-        "learning_rate": 1e-2,
+        "learning_rate": 1e-3,
         "seed": 109,
         "checkpoint": None,
         },
     "cybernid-sparse-big": {
-        "hidden_layers": [593, 100, 20],
+        "hidden_layers": [256, 86, 15],
         "input_bitwidth": 1,
         "hidden_bitwidth": 2,
         "output_bitwidth": 2,
         "input_fanin": 3,
         "hidden_fanin": 3,
+        "output_fanin": 4,
+        "weight_decay": 0.0,
+        "batch_size": 256,
+        "epochs": 5	,
+        "learning_rate": 1e-3,
+        "seed": 109,
+        "checkpoint": None,
+    },
+    "cybernid-big": {
+        "hidden_layers": [256, 86, 15],
+        "input_bitwidth": 1,
+        "hidden_bitwidth": 2,
+        "output_bitwidth": 2,
+        "input_fanin": 6,
+        "hidden_fanin": 6,
         "output_fanin": 7,
         "weight_decay": 0.0,
         "batch_size": 256,
         "epochs": 5	,
-        "learning_rate": 1e-2,
+        "learning_rate": 1e-3,
         "seed": 109,
         "checkpoint": None,
     }
@@ -98,7 +114,7 @@ training_config = {
 }
 
 dataset_config = {
-    "dataset_file": None,
+    "dataset_path": None,
 }
 
 other_options = {
@@ -168,6 +184,8 @@ def train(model, datasets, train_cfg, options):
             loss.backward()
             optimizer.step()
             scheduler.step()
+            if (batch_idx%10000 == 0):
+            	print(f"Epoch: {epoch}/{num_epochs}\tBatch: {batch_idx}/{len(train_loader)}\tLoss: {loss.detach()}")
 
             # Log stats to tensorboard
             #writer.add_scalar('train_loss', loss.detach().cpu().numpy(), epoch*steps + batch_idx)
@@ -198,20 +216,36 @@ def train(model, datasets, train_cfg, options):
         writer.add_scalar('test_accuracy', test_accuracy, (epoch+1)*steps)
         print(f"Epoch: {epoch}/{num_epochs}\tValid Acc (%): {val_accuracy:.4f}\tTest Acc: {test_accuracy:.4f}")
 
-def test(model, dataset_loader, cuda, thresh=0.75):
-    model.eval()
-    correct = 0
-    accLoss = 0.0
-    for batch_idx, (data, target) in enumerate(dataset_loader):
-        if cuda:
-            data, target = data.cuda(), target.cuda()
-        output = model(data)
-        pred = (torch.sigmoid(output.detach()) > thresh) * 1
-        curCorrect = pred.eq(target.unsqueeze(1)).long().sum()
-        curAcc = 100.0*curCorrect / len(data)
-        correct += curCorrect
-    accuracy = 100*float(correct) / len(dataset_loader.dataset)
-    return accuracy
+def test(model, dataset_loader, cuda, disp=0):
+    with torch.no_grad():
+        model.eval()
+        thresh = 0.75
+        all_preds = []
+        all_targets = []
+        correct = 0
+        for batch_idx, (data, target) in enumerate(dataset_loader):
+            if cuda:
+                data, target = data.cuda(), target.cuda()
+            output = model(data)
+            pred = (torch.sigmoid(output.detach()) > thresh) * 1
+            curCorrect = pred.eq(target.unsqueeze(1)).long().sum()
+            correct += curCorrect
+            all_preds.extend(pred.squeeze().tolist())
+            all_targets.extend(target.squeeze().tolist())
+        accuracy = 100 * float(correct) / len(dataset_loader.dataset)
+        
+        if disp == 1:
+            # Calculate F1 score
+            f1 = f1_score(all_targets, all_preds)
+            #print("F1 Score:", f1)
+            
+            # Write confusion matrix to file
+            cm = confusion_matrix(all_targets, all_preds)
+            #print(cm)
+            return accuracy ,f1, cm
+            
+        return accuracy
+
 
 if __name__ == "__main__":
     parser = ArgumentParser(description="LogicNets Network Intrusion Detection Example")
@@ -245,7 +279,7 @@ if __name__ == "__main__":
         help="A list of hidden layer neuron sizes (default: %(default)s)")
     parser.add_argument('--log-dir', type=str, default='./log',
         help="A location to store the log output of the training run and the output model (default: %(default)s)")
-    parser.add_argument('--dataset-file', type=str, default='data/edgeiiot.npz',
+    parser.add_argument('--dataset-path', type=str, default='data',
         help="The file to use as the dataset input (default: %(default)s)")
     parser.add_argument('--checkpoint', type=str, default=None,
         help="Retrain the model from a previous checkpoint (default: %(default)s)")
@@ -285,19 +319,21 @@ if __name__ == "__main__":
 
     # Fetch the datasets
     dataset = {}
-    dataset['train'] = get_preqnt_dataset(dataset_cfg['dataset_file'], split="train")
-    dataset['valid'] = get_preqnt_dataset(dataset_cfg['dataset_file'], split="val") # This dataset is so small, we'll just use the test set as the validation set, otherwise we may have too few trainings examples to converge.
-    dataset['test'] = get_preqnt_dataset(dataset_cfg['dataset_file'], split="test")
+    dataset['train'] = get_preqnt_dataset(dataset_cfg['dataset_path'], split="train")
+    dataset['valid'] = get_preqnt_dataset(dataset_cfg['dataset_path'], split="val") # This dataset is so small, we'll just use the test set as the validation set, otherwise we may have too few trainings examples to converge.
+    dataset['test'] = get_preqnt_dataset(dataset_cfg['dataset_path'], split="test")
 
     # Instantiate model
     x, y = dataset['train'][0]
     model_cfg['input_length'] = len(x)
     model_cfg['output_length'] = 1
-    model = EdgeIIoTModel(model_cfg)
+    print(y)
+    model = EdgeIIoTNeqModel(model_cfg)
     if options_cfg['checkpoint'] is not None:
         print(f"Loading pre-trained checkpoint {options_cfg['checkpoint']}")
         checkpoint = torch.load(options_cfg['checkpoint'], map_location='cpu')
         model.load_state_dict(checkpoint['model_dict'])
 
     train(model, dataset, train_cfg, options_cfg)
+
 

@@ -60,9 +60,7 @@ if __name__ == "__main__":
         help="A list of hidden layer neuron sizes (default: %(default)s)")
     parser.add_argument('--clock-period', type=float, default=1.0,
         help="Target clock frequency to use during Vivado synthesis (default: %(default)s)")
-    parser.add_argument('--dataset-split', type=str, default='test', choices=['train', 'test'],
-        help="Dataset to use for evaluation (default: %(default)s)")
-    parser.add_argument('--dataset-file', type=str, default='data/edgeiiot.npz',
+    parser.add_argument('--dataset-path', type=str, default='data',
         help="The file to use as the dataset input (default: %(default)s)")
     parser.add_argument('--log-dir', type=str, default='./log',
         help="A location to store the log output of the training run and the output model (default: %(default)s)")
@@ -104,11 +102,13 @@ if __name__ == "__main__":
 
     # Fetch the test set
     dataset = {}
-    dataset[args.dataset_split] = get_preqnt_dataset(dataset_cfg['dataset_file'], split=args.dataset_split)
-    test_loader = DataLoader(dataset[args.dataset_split], batch_size=config['batch_size'], shuffle=False)
+    dataset["test"] = get_preqnt_dataset(args.dataset_path, split= "test")
+    dataset["val"] = get_preqnt_dataset(args.dataset_path, split= "val")
+    test_loader = DataLoader(dataset["test"], batch_size=config['batch_size'], shuffle=False)
+    val_loader = DataLoader(dataset["val"], batch_size=config['batch_size'], shuffle=False)
 
     # Instantiate the PyTorch model
-    x, y = dataset[args.dataset_split][0]
+    x, y = dataset["test"][0]
     model_cfg['input_length'] = len(x)
     model_cfg['output_length'] = 1
     model = EdgeIIoTNeqModel(model_cfg)
@@ -118,10 +118,19 @@ if __name__ == "__main__":
     model.load_state_dict(checkpoint['model_dict'])
 
     # Test the PyTorch model
-    print("Running inference on baseline model...")
+    print("Running Val inference on baseline model...")
     model.eval()
-    baseline_accuracy = test(model, test_loader, cuda=False)
-    print("Baseline accuracy: %f" % (baseline_accuracy))
+    val_accuracy, val_f1, val_cm = test(model, val_loader, cuda=False, disp = 1)
+    print("Baseline accuracy, Validation set: %f \n Baseline F1-Score, Validation set: %f" % (val_accuracy, val_f1))
+    print("Val Confusion Matrix:")
+    print(val_cm)
+    
+    print("Running Test inference on baseline model...")
+    model.eval()
+    test_accuracy, test_f1, test_cm = test(model, test_loader, cuda=False, disp = 1)
+    print("Baseline accuracy, Test set: %f \n Baseline F1-Score, Test set: %f" % (test_accuracy, test_f1))
+    print("Test Confusion Matrix:")
+    print(test_cm)
 
     # Instantiate LUT-based model
     lut_model = EdgeIIoTLutModel(model_cfg)
@@ -162,6 +171,7 @@ if __name__ == "__main__":
 
     print("Running out-of-context synthesis")
     ret = synthesize_and_get_resource_counts(options_cfg["log_dir"], "logicnet", fpga_part="xcu280-fsvh2892-2L-e", clk_period_ns=args.clock_period, post_synthesis = 1)
+    print(ret)
 
     if args.simulate_post_synthesis_verilog:
         print("Running post-synthesis inference simulation of Verilog-based model...")

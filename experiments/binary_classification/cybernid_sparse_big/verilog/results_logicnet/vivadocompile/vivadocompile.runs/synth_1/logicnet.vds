@@ -1,0 +1,1069 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:47:39 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Wed Apr 24 00:01:06 2024
+# Process ID: 509178
+# Current directory: /workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/vivadocompile/vivadocompile.runs/synth_1
+# Command line: vivado -log logicnet.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source logicnet.tcl
+# Log file: /workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/vivadocompile/vivadocompile.runs/synth_1/logicnet.vds
+# Journal file: /workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/vivadocompile/vivadocompile.runs/synth_1/vivado.jou
+# Running On: 7ca2124810b8, OS: Linux, CPU Frequency: 4381.460 MHz, CPU Physical cores: 6, Host memory: 134810 MB
+#-----------------------------------------------------------
+source logicnet.tcl -notrace
+Command: synth_design -top logicnet -part xcu280-fsvh2892-2L-e -directive PerformanceOptimized -retiming -fsm_extraction one_hot -keep_equivalent_registers -resource_sharing off -no_lc -shreg_min_size 5 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcu280'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcu280'
+INFO: [Device 21-403] Loading part xcu280-fsvh2892-2L-e
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 509183
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 3492.836 ; gain = 286.762 ; free physical = 85720 ; free virtual = 102624
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'logicnet' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/logicnet.v:1]
+INFO: [Synth 8-6157] synthesizing module 'myreg' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/myreg.v:1]
+	Parameter DataWidth bound to: 512 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'myreg' (1#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/myreg.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N0' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N0.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N0' (2#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N0.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N1' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N1.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N1' (3#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N1.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N2' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N2.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N2' (4#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N2.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N3' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N3.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N3' (5#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N3.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N4' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N4.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N4' (6#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N4.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N5' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N5.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N5' (7#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N5.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N6' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N6.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N6' (8#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N6.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N7' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N7.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N7' (9#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N7.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N8' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N8.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N8' (10#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N8.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N9' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N9.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N9' (11#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N9.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N10' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N10.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N10' (12#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N10.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N11' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N11.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N11' (13#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N11.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N12' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N12.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N12' (14#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N12.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N13' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N13.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N13' (15#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N13.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N14' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N14.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N14' (16#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N14.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N15' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N15.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N15' (17#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N15.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N16' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N16.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N16' (18#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N16.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N17' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N17.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N17' (19#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N17.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N18' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N18.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N18' (20#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N18.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N19' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N19.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N19' (21#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N19.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N20' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N20.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N20' (22#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N20.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N21' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N21.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N21' (23#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N21.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N22' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N22.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N22' (24#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N22.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N23' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N23.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N23' (25#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N23.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N24' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N24.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N24' (26#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N24.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N25' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N25.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N25' (27#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N25.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N26' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N26.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N26' (28#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N26.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N27' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N27.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N27' (29#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N27.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N28' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N28.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N28' (30#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N28.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N29' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N29.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N29' (31#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N29.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N30' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N30.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N30' (32#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N30.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N31' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N31.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N31' (33#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N31.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N32' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N32.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N32' (34#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N32.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N33' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N33.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N33' (35#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N33.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N34' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N34.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N34' (36#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N34.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N35' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N35.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N35' (37#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N35.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N36' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N36.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N36' (38#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N36.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N37' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N37.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N37' (39#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N37.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N38' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N38.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N38' (40#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N38.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N39' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N39.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N39' (41#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N39.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N40' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N40.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N40' (42#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N40.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N41' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N41.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N41' (43#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N41.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N42' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N42.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N42' (44#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N42.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N43' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N43.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N43' (45#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N43.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N44' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N44.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N44' (46#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N44.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N45' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N45.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N45' (47#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N45.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N46' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N46.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N46' (48#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N46.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N47' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N47.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N47' (49#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N47.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N48' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N48.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N48' (50#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N48.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N49' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N49.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N49' (51#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N49.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N50' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N50.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N50' (52#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N50.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N51' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N51.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N51' (53#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N51.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N52' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N52.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N52' (54#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N52.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N53' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N53.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N53' (55#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N53.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N54' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N54.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N54' (56#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N54.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N55' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N55.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N55' (57#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N55.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N56' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N56.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N56' (58#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N56.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N57' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N57.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N57' (59#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N57.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N58' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N58.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N58' (60#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N58.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N59' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N59.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N59' (61#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N59.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N60' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N60.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N60' (62#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N60.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N61' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N61.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N61' (63#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N61.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N62' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N62.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N62' (64#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N62.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N63' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N63.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N63' (65#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N63.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N64' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N64.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N64' (66#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N64.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N65' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N65.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N65' (67#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N65.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N66' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N66.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N66' (68#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N66.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N67' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N67.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N67' (69#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N67.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N68' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N68.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N68' (70#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N68.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N69' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N69.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N69' (71#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N69.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N70' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N70.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N70' (72#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N70.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N71' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N71.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N71' (73#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N71.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N72' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N72.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N72' (74#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N72.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N73' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N73.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N73' (75#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N73.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N74' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N74.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N74' (76#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N74.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N75' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N75.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N75' (77#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N75.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N76' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N76.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N76' (78#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N76.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N77' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N77.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N77' (79#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N77.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N78' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N78.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N78' (80#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N78.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N79' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N79.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N79' (81#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N79.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N80' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N80.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N80' (82#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N80.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N81' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N81.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N81' (83#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N81.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N82' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N82.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N82' (84#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N82.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N83' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N83.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N83' (85#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N83.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N84' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N84.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N84' (86#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N84.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N85' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N85.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N85' (87#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N85.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N86' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N86.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N86' (88#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N86.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N87' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N87.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N87' (89#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N87.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N88' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N88.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N88' (90#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N88.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N89' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N89.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N89' (91#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N89.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N90' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N90.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N90' (92#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N90.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N91' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N91.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N91' (93#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N91.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N92' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N92.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N92' (94#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N92.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N93' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N93.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N93' (95#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N93.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N94' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N94.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N94' (96#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N94.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N95' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N95.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N95' (97#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N95.v:1]
+INFO: [Synth 8-6157] synthesizing module 'layer0_N96' [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N96.v:1]
+INFO: [Common 17-14] Message 'Synth 8-6157' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N96' (98#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N96.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N97' (99#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N97.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'layer0_N98' (100#1) [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/layer0_N98.v:1]
+INFO: [Common 17-14] Message 'Synth 8-6155' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+	Parameter DataWidth bound to: 172 - type: integer 
+	Parameter DataWidth bound to: 30 - type: integer 
+WARNING: [Synth 8-7129] Port M0[29] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[28] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[27] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[26] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[25] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[24] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[23] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[22] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[21] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[20] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[17] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[16] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[15] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[14] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[13] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[12] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[9] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[8] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[7] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[6] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[1] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[0] in module layer3 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[167] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[166] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[165] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[164] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[163] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[162] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[161] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[160] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[159] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[158] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[155] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[154] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[151] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[150] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[149] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[148] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[143] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[142] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[139] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[138] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[135] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[134] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[133] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[132] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[131] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[130] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[129] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[128] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[127] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[126] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[125] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[124] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[123] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[122] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[121] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[120] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[119] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[118] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[117] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[116] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[115] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[114] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[111] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[110] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[109] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[108] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[107] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[106] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[103] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[102] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[101] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[100] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[97] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[96] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[95] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[94] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[91] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[90] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[89] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[88] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[87] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[86] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[85] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[84] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[83] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[82] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[77] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[76] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[73] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[72] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[71] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[70] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[69] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[68] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[65] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[64] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[61] in module layer2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port M0[60] in module layer2 is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 3568.742 ; gain = 362.668 ; free physical = 86612 ; free virtual = 103517
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 3586.555 ; gain = 380.480 ; free physical = 86619 ; free virtual = 103524
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 3586.555 ; gain = 380.480 ; free physical = 86619 ; free virtual = 103524
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3586.555 ; gain = 0.000 ; free physical = 86616 ; free virtual = 103522
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/logicnet.xdc]
+Finished Parsing XDC File [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/logicnet.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3749.117 ; gain = 0.000 ; free physical = 86492 ; free virtual = 103398
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3749.117 ; gain = 0.000 ; free physical = 86492 ; free virtual = 103398
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 3749.117 ; gain = 543.043 ; free physical = 86604 ; free virtual = 103510
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcu280-fsvh2892-2L-e
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 3749.117 ; gain = 543.043 ; free physical = 86604 ; free virtual = 103510
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 3749.117 ; gain = 543.043 ; free physical = 86604 ; free virtual = 103510
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 3749.117 ; gain = 543.043 ; free physical = 86588 ; free virtual = 103490
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	              512 Bit    Registers := 2     
+	              172 Bit    Registers := 1     
+	               30 Bit    Registers := 1     
++---Muxes : 
+	   2 Input  512 Bit        Muxes := 2     
+	   2 Input  172 Bit        Muxes := 1     
+	   2 Input   30 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 9024 (col length:94)
+BRAMs: 4032 (col length: RAMB18 288 RAMB36 144)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3936] Found unconnected internal register 'layer3_reg/data_out_reg' and it is trimmed from '30' to '20' bits. [/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/myreg.v:9]
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:27 . Memory (MB): peak = 3749.117 ; gain = 543.043 ; free physical = 86552 ; free virtual = 103461
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++------------+----------------------------------+---------------+----------------+
+|Module Name | RTL Object                       | Depth x Width | Implemented As | 
++------------+----------------------------------+---------------+----------------+
+|layer0_N0   | M1r                              | 8x2           | LUT            | 
+|layer0_N1   | M1r                              | 8x2           | LUT            | 
+|layer0_N2   | M1r                              | 8x1           | LUT            | 
+|layer0_N3   | M1r                              | 8x2           | LUT            | 
+|layer0_N4   | M1r                              | 8x1           | LUT            | 
+|layer0_N5   | M1r                              | 8x2           | LUT            | 
+|layer0_N6   | M1r                              | 8x2           | LUT            | 
+|layer0_N7   | M1r                              | 8x2           | LUT            | 
+|layer0_N8   | M1r                              | 8x2           | LUT            | 
+|layer0_N9   | M1r                              | 8x2           | LUT            | 
+|layer0_N10  | M1r                              | 8x1           | LUT            | 
+|layer0_N11  | M1r                              | 8x2           | LUT            | 
+|layer0_N12  | M1r                              | 8x2           | LUT            | 
+|layer0_N13  | M1r                              | 8x2           | LUT            | 
+|layer0_N14  | M1r                              | 8x2           | LUT            | 
+|layer0_N15  | M1r                              | 8x2           | LUT            | 
+|layer0_N16  | M1r                              | 8x1           | LUT            | 
+|layer0_N17  | M1r                              | 8x2           | LUT            | 
+|layer0_N18  | M1r                              | 8x2           | LUT            | 
+|layer0_N19  | M1r                              | 8x1           | LUT            | 
+|layer0_N20  | M1r                              | 8x2           | LUT            | 
+|layer0_N21  | M1r                              | 8x2           | LUT            | 
+|layer0_N22  | M1r                              | 8x2           | LUT            | 
+|layer0_N23  | M1r                              | 8x2           | LUT            | 
+|layer0_N24  | M1r                              | 8x1           | LUT            | 
+|layer0_N25  | M1r                              | 8x2           | LUT            | 
+|layer0_N26  | M1r                              | 8x2           | LUT            | 
+|layer0_N27  | M1r                              | 8x2           | LUT            | 
+|layer0_N28  | M1r                              | 8x1           | LUT            | 
+|layer0_N29  | M1r                              | 8x2           | LUT            | 
+|layer0_N30  | M1r                              | 8x2           | LUT            | 
+|layer0_N31  | M1r                              | 8x2           | LUT            | 
+|layer0_N32  | M1r                              | 8x1           | LUT            | 
+|layer0_N33  | M1r                              | 8x2           | LUT            | 
+|layer0_N34  | M1r                              | 8x2           | LUT            | 
+|layer0_N35  | M1r                              | 8x2           | LUT            | 
+|layer0_N36  | M1r                              | 8x2           | LUT            | 
+|layer0_N37  | M1r                              | 8x2           | LUT            | 
+|layer0_N38  | M1r                              | 8x1           | LUT            | 
+|layer0_N39  | M1r                              | 8x2           | LUT            | 
+|layer0_N40  | M1r                              | 8x2           | LUT            | 
+|layer0_N41  | M1r                              | 8x2           | LUT            | 
+|layer0_N42  | M1r                              | 8x2           | LUT            | 
+|layer0_N43  | M1r                              | 8x2           | LUT            | 
+|layer0_N44  | M1r                              | 8x2           | LUT            | 
+|layer0_N45  | M1r                              | 8x2           | LUT            | 
+|layer0_N47  | M1r                              | 8x1           | LUT            | 
+|layer0_N48  | M1r                              | 8x2           | LUT            | 
+|layer0_N49  | M1r                              | 8x2           | LUT            | 
+|layer0_N50  | M1r                              | 8x2           | LUT            | 
+|layer0_N51  | M1r                              | 8x2           | LUT            | 
+|layer0_N52  | M1r                              | 8x1           | LUT            | 
+|layer0_N53  | M1r                              | 8x1           | LUT            | 
+|layer0_N54  | M1r                              | 8x1           | LUT            | 
+|layer0_N55  | M1r                              | 8x2           | LUT            | 
+|layer0_N56  | M1r                              | 8x2           | LUT            | 
+|layer0_N57  | M1r                              | 8x2           | LUT            | 
+|layer0_N58  | M1r                              | 8x2           | LUT            | 
+|layer0_N59  | M1r                              | 8x1           | LUT            | 
+|layer0_N60  | M1r                              | 8x2           | LUT            | 
+|layer0_N61  | M1r                              | 8x2           | LUT            | 
+|layer0_N62  | M1r                              | 8x1           | LUT            | 
+|layer0_N63  | M1r                              | 8x1           | LUT            | 
+|layer0_N64  | M1r                              | 8x2           | LUT            | 
+|layer0_N65  | M1r                              | 8x2           | LUT            | 
+|layer0_N66  | M1r                              | 8x2           | LUT            | 
+|layer0_N67  | M1r                              | 8x2           | LUT            | 
+|layer0_N68  | M1r                              | 8x2           | LUT            | 
+|layer0_N69  | M1r                              | 8x2           | LUT            | 
+|layer0_N70  | M1r                              | 8x1           | LUT            | 
+|layer0_N71  | M1r                              | 8x2           | LUT            | 
+|layer0_N72  | M1r                              | 8x2           | LUT            | 
+|layer0_N73  | M1r                              | 8x2           | LUT            | 
+|layer0_N74  | M1r                              | 8x2           | LUT            | 
+|layer0_N75  | M1r                              | 8x2           | LUT            | 
+|layer0_N76  | M1r                              | 8x1           | LUT            | 
+|layer0_N77  | M1r                              | 8x2           | LUT            | 
+|layer0_N78  | M1r                              | 8x1           | LUT            | 
+|layer0_N79  | M1r                              | 8x2           | LUT            | 
+|layer0_N80  | M1r                              | 8x1           | LUT            | 
+|layer0_N81  | M1r                              | 8x2           | LUT            | 
+|layer0_N82  | M1r                              | 8x1           | LUT            | 
+|layer0_N83  | M1r                              | 8x1           | LUT            | 
+|layer0_N84  | M1r                              | 8x2           | LUT            | 
+|layer0_N85  | M1r                              | 8x1           | LUT            | 
+|layer0_N86  | M1r                              | 8x2           | LUT            | 
+|layer0_N87  | M1r                              | 8x2           | LUT            | 
+|layer0_N88  | M1r                              | 8x2           | LUT            | 
+|layer0_N89  | M1r                              | 8x2           | LUT            | 
+|layer0_N90  | M1r                              | 8x2           | LUT            | 
+|layer0_N91  | M1r                              | 8x2           | LUT            | 
+|layer0_N92  | M1r                              | 8x2           | LUT            | 
+|layer0_N93  | M1r                              | 8x1           | LUT            | 
+|layer0_N94  | M1r                              | 8x2           | LUT            | 
+|layer0_N95  | M1r                              | 8x2           | LUT            | 
+|layer0_N96  | M1r                              | 8x2           | LUT            | 
+|layer0_N97  | M1r                              | 8x2           | LUT            | 
+|layer0_N98  | M1r                              | 8x2           | LUT            | 
+|layer0_N99  | M1r                              | 8x1           | LUT            | 
+|layer0_N100 | M1r                              | 8x2           | LUT            | 
+|layer0_N101 | M1r                              | 8x2           | LUT            | 
+|layer0_N102 | M1r                              | 8x2           | LUT            | 
+|layer0_N103 | M1r                              | 8x2           | LUT            | 
+|layer0_N104 | M1r                              | 8x2           | LUT            | 
+|layer0_N105 | M1r                              | 8x2           | LUT            | 
+|layer0_N106 | M1r                              | 8x2           | LUT            | 
+|layer0_N107 | M1r                              | 8x2           | LUT            | 
+|layer0_N108 | M1r                              | 8x2           | LUT            | 
+|layer0_N109 | M1r                              | 8x1           | LUT            | 
+|layer0_N110 | M1r                              | 8x2           | LUT            | 
+|layer0_N111 | M1r                              | 8x2           | LUT            | 
+|layer0_N112 | M1r                              | 8x1           | LUT            | 
+|layer0_N113 | M1r                              | 8x2           | LUT            | 
+|layer0_N114 | M1r                              | 8x2           | LUT            | 
+|layer0_N115 | M1r                              | 8x2           | LUT            | 
+|layer0_N116 | M1r                              | 8x2           | LUT            | 
+|layer0_N117 | M1r                              | 8x2           | LUT            | 
+|layer0_N118 | M1r                              | 8x2           | LUT            | 
+|layer0_N119 | M1r                              | 8x2           | LUT            | 
+|layer0_N120 | M1r                              | 8x1           | LUT            | 
+|layer0_N121 | M1r                              | 8x2           | LUT            | 
+|layer0_N122 | M1r                              | 8x2           | LUT            | 
+|layer0_N123 | M1r                              | 8x2           | LUT            | 
+|layer0_N124 | M1r                              | 8x1           | LUT            | 
+|layer0_N125 | M1r                              | 8x1           | LUT            | 
+|layer0_N126 | M1r                              | 8x2           | LUT            | 
+|layer0_N127 | M1r                              | 8x2           | LUT            | 
+|layer0_N128 | M1r                              | 8x1           | LUT            | 
+|layer0_N129 | M1r                              | 8x1           | LUT            | 
+|layer0_N130 | M1r                              | 8x2           | LUT            | 
+|layer0_N131 | M1r                              | 8x2           | LUT            | 
+|layer0_N132 | M1r                              | 8x1           | LUT            | 
+|layer0_N133 | M1r                              | 8x1           | LUT            | 
+|layer0_N134 | M1r                              | 8x2           | LUT            | 
+|layer0_N135 | M1r                              | 8x2           | LUT            | 
+|layer0_N136 | M1r                              | 8x1           | LUT            | 
+|layer0_N137 | M1r                              | 8x2           | LUT            | 
+|layer0_N138 | M1r                              | 8x2           | LUT            | 
+|layer0_N139 | M1r                              | 8x2           | LUT            | 
+|layer0_N140 | M1r                              | 8x1           | LUT            | 
+|layer0_N141 | M1r                              | 8x2           | LUT            | 
+|layer0_N142 | M1r                              | 8x2           | LUT            | 
+|layer0_N143 | M1r                              | 8x1           | LUT            | 
+|layer0_N144 | M1r                              | 8x1           | LUT            | 
+|layer0_N145 | M1r                              | 8x1           | LUT            | 
+|layer0_N146 | M1r                              | 8x2           | LUT            | 
+|layer0_N147 | M1r                              | 8x1           | LUT            | 
+|layer0_N148 | M1r                              | 8x2           | LUT            | 
+|layer0_N149 | M1r                              | 8x2           | LUT            | 
+|layer0_N150 | M1r                              | 8x2           | LUT            | 
+|layer0_N151 | M1r                              | 8x1           | LUT            | 
+|layer0_N152 | M1r                              | 8x1           | LUT            | 
+|layer0_N153 | M1r                              | 8x2           | LUT            | 
+|layer0_N154 | M1r                              | 8x2           | LUT            | 
+|layer0_N155 | M1r                              | 8x1           | LUT            | 
+|layer0_N156 | M1r                              | 8x2           | LUT            | 
+|layer0_N157 | M1r                              | 8x2           | LUT            | 
+|layer0_N158 | M1r                              | 8x2           | LUT            | 
+|layer0_N159 | M1r                              | 8x2           | LUT            | 
+|layer0_N160 | M1r                              | 8x2           | LUT            | 
+|layer0_N161 | M1r                              | 8x2           | LUT            | 
+|layer0_N162 | M1r                              | 8x2           | LUT            | 
+|layer0_N163 | M1r                              | 8x2           | LUT            | 
+|layer0_N164 | M1r                              | 8x2           | LUT            | 
+|layer0_N165 | M1r                              | 8x1           | LUT            | 
+|layer0_N166 | M1r                              | 8x2           | LUT            | 
+|layer0_N167 | M1r                              | 8x2           | LUT            | 
+|layer0_N168 | M1r                              | 8x2           | LUT            | 
+|layer0_N169 | M1r                              | 8x2           | LUT            | 
+|layer0_N170 | M1r                              | 8x2           | LUT            | 
+|layer0_N171 | M1r                              | 8x2           | LUT            | 
+|layer0_N172 | M1r                              | 8x1           | LUT            | 
+|layer0_N173 | M1r                              | 8x2           | LUT            | 
+|layer0_N174 | M1r                              | 8x2           | LUT            | 
+|layer0_N175 | M1r                              | 8x2           | LUT            | 
+|layer0_N176 | M1r                              | 8x2           | LUT            | 
+|layer0_N177 | M1r                              | 8x2           | LUT            | 
+|layer0_N178 | M1r                              | 8x2           | LUT            | 
+|layer0_N179 | M1r                              | 8x1           | LUT            | 
+|layer0_N180 | M1r                              | 8x1           | LUT            | 
+|layer0_N181 | M1r                              | 8x2           | LUT            | 
+|layer0_N182 | M1r                              | 8x2           | LUT            | 
+|layer0_N183 | M1r                              | 8x2           | LUT            | 
+|layer0_N184 | M1r                              | 8x2           | LUT            | 
+|layer0_N185 | M1r                              | 8x2           | LUT            | 
+|layer0_N186 | M1r                              | 8x1           | LUT            | 
+|layer0_N187 | M1r                              | 8x2           | LUT            | 
+|layer0_N188 | M1r                              | 8x2           | LUT            | 
+|layer0_N189 | M1r                              | 8x1           | LUT            | 
+|layer0_N190 | M1r                              | 8x1           | LUT            | 
+|layer0_N191 | M1r                              | 8x2           | LUT            | 
+|layer0_N192 | M1r                              | 8x1           | LUT            | 
+|layer0_N193 | M1r                              | 8x2           | LUT            | 
+|layer0_N194 | M1r                              | 8x2           | LUT            | 
+|layer0_N195 | M1r                              | 8x2           | LUT            | 
+|layer0_N196 | M1r                              | 8x2           | LUT            | 
+|layer0_N197 | M1r                              | 8x2           | LUT            | 
+|layer0_N198 | M1r                              | 8x2           | LUT            | 
+|layer0_N199 | M1r                              | 8x2           | LUT            | 
+|layer0_N200 | M1r                              | 8x2           | LUT            | 
+|layer0_N201 | M1r                              | 8x2           | LUT            | 
+|layer0_N202 | M1r                              | 8x2           | LUT            | 
+|layer0_N203 | M1r                              | 8x1           | LUT            | 
+|layer0_N204 | M1r                              | 8x2           | LUT            | 
+|layer0_N205 | M1r                              | 8x1           | LUT            | 
+|layer0_N206 | M1r                              | 8x1           | LUT            | 
+|layer0_N207 | M1r                              | 8x1           | LUT            | 
+|layer0_N208 | M1r                              | 8x1           | LUT            | 
+|layer0_N209 | M1r                              | 8x2           | LUT            | 
+|layer0_N211 | M1r                              | 8x2           | LUT            | 
+|layer0_N212 | M1r                              | 8x2           | LUT            | 
+|layer0_N213 | M1r                              | 8x2           | LUT            | 
+|layer0_N214 | M1r                              | 8x1           | LUT            | 
+|layer0_N216 | M1r                              | 8x2           | LUT            | 
+|layer0_N217 | M1r                              | 8x2           | LUT            | 
+|layer0_N219 | M1r                              | 8x2           | LUT            | 
+|layer0_N220 | M1r                              | 8x2           | LUT            | 
+|layer0_N221 | M1r                              | 8x2           | LUT            | 
+|layer0_N222 | M1r                              | 8x2           | LUT            | 
+|layer0_N223 | M1r                              | 8x1           | LUT            | 
+|layer0_N224 | M1r                              | 8x2           | LUT            | 
+|layer0_N225 | M1r                              | 8x2           | LUT            | 
+|layer0_N226 | M1r                              | 8x1           | LUT            | 
+|layer0_N227 | M1r                              | 8x2           | LUT            | 
+|layer0_N228 | M1r                              | 8x2           | LUT            | 
+|layer0_N229 | M1r                              | 8x1           | LUT            | 
+|layer0_N230 | M1r                              | 8x2           | LUT            | 
+|layer0_N231 | M1r                              | 8x2           | LUT            | 
+|layer0_N232 | M1r                              | 8x1           | LUT            | 
+|layer0_N233 | M1r                              | 8x2           | LUT            | 
+|layer0_N234 | M1r                              | 8x2           | LUT            | 
+|layer0_N235 | M1r                              | 8x1           | LUT            | 
+|layer0_N236 | M1r                              | 8x1           | LUT            | 
+|layer0_N237 | M1r                              | 8x2           | LUT            | 
+|layer0_N238 | M1r                              | 8x2           | LUT            | 
+|layer0_N239 | M1r                              | 8x1           | LUT            | 
+|layer0_N240 | M1r                              | 8x2           | LUT            | 
+|layer0_N241 | M1r                              | 8x2           | LUT            | 
+|layer0_N242 | M1r                              | 8x2           | LUT            | 
+|layer0_N243 | M1r                              | 8x1           | LUT            | 
+|layer0_N244 | M1r                              | 8x1           | LUT            | 
+|layer0_N245 | M1r                              | 8x2           | LUT            | 
+|layer0_N246 | M1r                              | 8x1           | LUT            | 
+|layer0_N247 | M1r                              | 8x1           | LUT            | 
+|layer0_N248 | M1r                              | 8x1           | LUT            | 
+|layer0_N249 | M1r                              | 8x1           | LUT            | 
+|layer0_N250 | M1r                              | 8x2           | LUT            | 
+|layer0_N251 | M1r                              | 8x2           | LUT            | 
+|layer0_N252 | M1r                              | 8x1           | LUT            | 
+|layer0_N253 | M1r                              | 8x2           | LUT            | 
+|layer0_N254 | M1r                              | 8x2           | LUT            | 
+|layer0_N255 | M1r                              | 8x1           | LUT            | 
+|layer1_N0   | M1r                              | 64x2          | LUT            | 
+|layer1_N1   | M1r                              | 64x2          | LUT            | 
+|layer1_N2   | M1r                              | 64x2          | LUT            | 
+|layer1_N3   | M1r                              | 64x2          | LUT            | 
+|layer1_N4   | M1r                              | 64x2          | LUT            | 
+|layer1_N5   | M1r                              | 64x2          | LUT            | 
+|layer1_N6   | M1r                              | 64x2          | LUT            | 
+|layer1_N7   | M1r                              | 64x2          | LUT            | 
+|layer1_N8   | M1r                              | 64x2          | LUT            | 
+|layer1_N9   | M1r                              | 64x2          | LUT            | 
+|layer1_N10  | M1r                              | 64x2          | LUT            | 
+|layer1_N11  | M1r                              | 64x2          | LUT            | 
+|layer1_N12  | M1r                              | 64x2          | LUT            | 
+|layer1_N13  | M1r                              | 64x2          | LUT            | 
+|layer1_N14  | M1r                              | 64x2          | LUT            | 
+|layer1_N15  | M1r                              | 64x2          | LUT            | 
+|layer1_N16  | M1r                              | 64x2          | LUT            | 
+|layer1_N17  | M1r                              | 64x2          | LUT            | 
+|layer1_N18  | M1r                              | 64x2          | LUT            | 
+|layer1_N19  | M1r                              | 64x2          | LUT            | 
+|layer1_N20  | M1r                              | 64x2          | LUT            | 
+|layer1_N21  | M1r                              | 64x2          | LUT            | 
+|layer1_N22  | M1r                              | 64x2          | LUT            | 
+|layer1_N23  | M1r                              | 64x2          | LUT            | 
+|layer1_N24  | M1r                              | 64x2          | LUT            | 
+|layer1_N25  | M1r                              | 64x2          | LUT            | 
+|layer1_N26  | M1r                              | 64x2          | LUT            | 
+|layer1_N27  | M1r                              | 64x2          | LUT            | 
+|layer1_N28  | M1r                              | 64x2          | LUT            | 
+|layer1_N29  | M1r                              | 64x2          | LUT            | 
+|layer1_N30  | M1r                              | 64x2          | LUT            | 
+|layer1_N31  | M1r                              | 64x2          | LUT            | 
+|layer1_N32  | M1r                              | 64x2          | LUT            | 
+|layer1_N33  | M1r                              | 64x2          | LUT            | 
+|layer1_N34  | M1r                              | 64x2          | LUT            | 
+|layer1_N35  | M1r                              | 64x2          | LUT            | 
+|layer1_N36  | M1r                              | 64x2          | LUT            | 
+|layer1_N37  | M1r                              | 64x2          | LUT            | 
+|layer1_N38  | M1r                              | 64x2          | LUT            | 
+|layer1_N39  | M1r                              | 64x2          | LUT            | 
+|layer1_N40  | M1r                              | 64x2          | LUT            | 
+|layer1_N41  | M1r                              | 64x2          | LUT            | 
+|layer1_N42  | M1r                              | 64x2          | LUT            | 
+|layer1_N43  | M1r                              | 64x2          | LUT            | 
+|layer1_N44  | M1r                              | 64x2          | LUT            | 
+|layer1_N45  | M1r                              | 64x2          | LUT            | 
+|layer1_N46  | M1r                              | 64x2          | LUT            | 
+|layer1_N47  | M1r                              | 64x2          | LUT            | 
+|layer1_N48  | M1r                              | 64x2          | LUT            | 
+|layer1_N49  | M1r                              | 64x2          | LUT            | 
+|layer1_N50  | M1r                              | 64x2          | LUT            | 
+|layer1_N51  | M1r                              | 64x2          | LUT            | 
+|layer1_N52  | M1r                              | 64x2          | LUT            | 
+|layer1_N53  | M1r                              | 64x2          | LUT            | 
+|layer1_N54  | M1r                              | 64x2          | LUT            | 
+|layer1_N55  | M1r                              | 64x2          | LUT            | 
+|layer1_N56  | M1r                              | 64x2          | LUT            | 
+|layer1_N57  | M1r                              | 64x2          | LUT            | 
+|layer1_N58  | M1r                              | 64x2          | LUT            | 
+|layer1_N59  | M1r                              | 64x2          | LUT            | 
+|layer1_N60  | M1r                              | 64x2          | LUT            | 
+|layer1_N61  | M1r                              | 64x2          | LUT            | 
+|layer1_N62  | M1r                              | 64x2          | LUT            | 
+|layer1_N63  | M1r                              | 64x2          | LUT            | 
+|layer1_N64  | M1r                              | 64x2          | LUT            | 
+|layer1_N65  | M1r                              | 64x2          | LUT            | 
+|layer1_N66  | M1r                              | 64x2          | LUT            | 
+|layer1_N67  | M1r                              | 64x2          | LUT            | 
+|layer1_N68  | M1r                              | 64x2          | LUT            | 
+|layer1_N69  | M1r                              | 64x2          | LUT            | 
+|layer1_N70  | M1r                              | 64x2          | LUT            | 
+|layer1_N71  | M1r                              | 64x2          | LUT            | 
+|layer1_N72  | M1r                              | 64x2          | LUT            | 
+|layer1_N74  | M1r                              | 64x2          | LUT            | 
+|layer1_N75  | M1r                              | 64x2          | LUT            | 
+|layer1_N76  | M1r                              | 64x2          | LUT            | 
+|layer1_N77  | M1r                              | 64x2          | LUT            | 
+|layer1_N78  | M1r                              | 64x2          | LUT            | 
+|layer1_N79  | M1r                              | 64x2          | LUT            | 
+|layer1_N80  | M1r                              | 64x2          | LUT            | 
+|layer1_N81  | M1r                              | 64x2          | LUT            | 
+|layer1_N82  | M1r                              | 64x2          | LUT            | 
+|layer1_N83  | M1r                              | 64x2          | LUT            | 
+|layer1_N84  | M1r                              | 64x2          | LUT            | 
+|layer1_N85  | M1r                              | 64x2          | LUT            | 
+|layer2_N0   | M1r                              | 64x2          | LUT            | 
+|layer2_N1   | M1r                              | 64x2          | LUT            | 
+|layer2_N2   | M1r                              | 64x2          | LUT            | 
+|layer2_N3   | M1r                              | 64x2          | LUT            | 
+|layer2_N4   | M1r                              | 64x2          | LUT            | 
+|layer2_N5   | M1r                              | 64x2          | LUT            | 
+|layer2_N6   | M1r                              | 64x2          | LUT            | 
+|layer2_N7   | M1r                              | 64x2          | LUT            | 
+|layer2_N8   | M1r                              | 64x2          | LUT            | 
+|layer2_N9   | M1r                              | 64x2          | LUT            | 
+|layer2_N10  | M1r                              | 64x2          | LUT            | 
+|layer2_N11  | M1r                              | 64x2          | LUT            | 
+|layer2_N12  | M1r                              | 64x2          | LUT            | 
+|layer2_N13  | M1r                              | 64x2          | LUT            | 
+|layer2_N14  | M1r                              | 64x2          | LUT            | 
+|layer3_N0   | M1r                              | 256x2         | LUT            | 
+|logicnet    | layer3_inst/layer3_N0_inst/M1r   | 256x2         | LUT            | 
+|logicnet    | layer0_inst/layer0_N176_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N177_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N178_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N179_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N180_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N181_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N182_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N183_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N184_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N185_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N186_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N187_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N188_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N189_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N190_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N191_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N192_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N193_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N194_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N195_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N196_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N197_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N198_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N199_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N200_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N201_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N202_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N203_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N204_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N205_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N206_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N207_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N208_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N209_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N211_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N212_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N213_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N214_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N216_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N217_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N219_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N220_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N221_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N222_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N223_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N224_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N225_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N226_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N227_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N228_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N229_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N230_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N231_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N232_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N233_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N234_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N235_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N236_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N237_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N238_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N239_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N240_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N241_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N242_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N243_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N244_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N245_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N246_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N247_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N248_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N249_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N250_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N251_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N252_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer0_inst/layer0_N253_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N254_inst/M1r | 8x2           | LUT            | 
+|logicnet    | layer0_inst/layer0_N255_inst/M1r | 8x1           | LUT            | 
+|logicnet    | layer1_inst/layer1_N0_inst/M1r   | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N1_inst/M1r   | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N2_inst/M1r   | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N3_inst/M1r   | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N4_inst/M1r   | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N5_inst/M1r   | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N6_inst/M1r   | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N7_inst/M1r   | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N8_inst/M1r   | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N9_inst/M1r   | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N10_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N11_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N12_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N13_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N14_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N15_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N16_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N17_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N18_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N19_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N20_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N21_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N22_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N23_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N24_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N25_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N26_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N27_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N28_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N29_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N30_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N31_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N32_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N33_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N34_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N35_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N36_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N37_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N38_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N39_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N40_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N41_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N42_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N43_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N44_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N45_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N46_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N47_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N48_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N49_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N50_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N51_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N52_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N53_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N54_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N55_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N56_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N57_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N58_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N59_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N60_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N61_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N62_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N63_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N64_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N65_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N66_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N67_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N68_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N69_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N70_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N71_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N72_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N74_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N75_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N76_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N77_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N78_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N79_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N80_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N81_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N82_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N83_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N84_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer1_inst/layer1_N85_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer2_inst/layer2_N0_inst/M1r   | 64x2          | LUT            | 
+|logicnet    | layer2_inst/layer2_N1_inst/M1r   | 64x2          | LUT            | 
+|logicnet    | layer2_inst/layer2_N2_inst/M1r   | 64x2          | LUT            | 
+|logicnet    | layer2_inst/layer2_N3_inst/M1r   | 64x2          | LUT            | 
+|logicnet    | layer2_inst/layer2_N4_inst/M1r   | 64x2          | LUT            | 
+|logicnet    | layer2_inst/layer2_N5_inst/M1r   | 64x2          | LUT            | 
+|logicnet    | layer2_inst/layer2_N6_inst/M1r   | 64x2          | LUT            | 
+|logicnet    | layer2_inst/layer2_N7_inst/M1r   | 64x2          | LUT            | 
+|logicnet    | layer2_inst/layer2_N8_inst/M1r   | 64x2          | LUT            | 
+|logicnet    | layer2_inst/layer2_N9_inst/M1r   | 64x2          | LUT            | 
+|logicnet    | layer2_inst/layer2_N10_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer2_inst/layer2_N11_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer2_inst/layer2_N12_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer2_inst/layer2_N13_inst/M1r  | 64x2          | LUT            | 
+|logicnet    | layer2_inst/layer2_N14_inst/M1r  | 64x2          | LUT            | 
++------------+----------------------------------+---------------+----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:35 . Memory (MB): peak = 4025.586 ; gain = 819.512 ; free physical = 86077 ; free virtual = 102988
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:00:35 . Memory (MB): peak = 4054.633 ; gain = 848.559 ; free physical = 86066 ; free virtual = 102977
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5816] Retiming module `logicnet`
+	Numbers of forward move = 0, and backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `logicnet' done
+
+
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:35 . Memory (MB): peak = 4054.633 ; gain = 848.559 ; free physical = 86060 ; free virtual = 102970
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 4054.633 ; gain = 848.559 ; free physical = 86057 ; free virtual = 102968
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 4054.633 ; gain = 848.559 ; free physical = 86057 ; free virtual = 102968
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 4054.633 ; gain = 848.559 ; free physical = 86057 ; free virtual = 102968
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 4054.633 ; gain = 848.559 ; free physical = 86057 ; free virtual = 102968
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 4054.633 ; gain = 848.559 ; free physical = 86057 ; free virtual = 102968
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 4054.633 ; gain = 848.559 ; free physical = 86057 ; free virtual = 102968
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT1 |     3|
+|2     |LUT2 |    16|
+|3     |LUT3 |    15|
+|4     |LUT4 |     3|
+|5     |LUT5 |     3|
+|6     |LUT6 |    25|
+|7     |FDRE |   141|
++------+-----+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 4054.633 ; gain = 848.559 ; free physical = 86057 ; free virtual = 102968
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:27 ; elapsed = 00:00:33 . Memory (MB): peak = 4054.633 ; gain = 685.996 ; free physical = 86103 ; free virtual = 103014
+Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:38 . Memory (MB): peak = 4054.641 ; gain = 848.559 ; free physical = 86103 ; free virtual = 103014
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4066.602 ; gain = 0.000 ; free physical = 86189 ; free virtual = 103100
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4129.797 ; gain = 0.000 ; free physical = 86097 ; free virtual = 103007
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: 64410da9
+INFO: [Common 17-83] Releasing license: Synthesis
+218 Infos, 102 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 4129.797 ; gain = 1373.086 ; free physical = 86286 ; free virtual = 103197
+INFO: [Common 17-1381] The checkpoint '/workspace/logicnets/experiments/binary_classification/cybernid_sparse_big/verilog/results_logicnet/vivadocompile/vivadocompile.runs/synth_1/logicnet.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file logicnet_utilization_synth.rpt -pb logicnet_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Apr 24 00:02:04 2024...

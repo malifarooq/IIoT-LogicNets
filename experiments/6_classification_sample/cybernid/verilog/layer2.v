@@ -1,0 +1,21 @@
+module layer2 (input [63:0] M0, output [11:0] M1);
+
+wire [13:0] layer2_N0_wire = {M0[63], M0[62], M0[47], M0[46], M0[37], M0[36], M0[35], M0[34], M0[27], M0[26], M0[17], M0[16], M0[9], M0[8]};
+layer2_N0 layer2_N0_inst (.M0(layer2_N0_wire), .M1(M1[1:0]));
+
+wire [13:0] layer2_N1_wire = {M0[43], M0[42], M0[31], M0[30], M0[19], M0[18], M0[17], M0[16], M0[9], M0[8], M0[7], M0[6], M0[5], M0[4]};
+layer2_N1 layer2_N1_inst (.M0(layer2_N1_wire), .M1(M1[3:2]));
+
+wire [13:0] layer2_N2_wire = {M0[63], M0[62], M0[59], M0[58], M0[27], M0[26], M0[25], M0[24], M0[23], M0[22], M0[11], M0[10], M0[7], M0[6]};
+layer2_N2 layer2_N2_inst (.M0(layer2_N2_wire), .M1(M1[5:4]));
+
+wire [13:0] layer2_N3_wire = {M0[63], M0[62], M0[41], M0[40], M0[33], M0[32], M0[31], M0[30], M0[27], M0[26], M0[17], M0[16], M0[1], M0[0]};
+layer2_N3 layer2_N3_inst (.M0(layer2_N3_wire), .M1(M1[7:6]));
+
+wire [13:0] layer2_N4_wire = {M0[63], M0[62], M0[55], M0[54], M0[51], M0[50], M0[27], M0[26], M0[21], M0[20], M0[11], M0[10], M0[3], M0[2]};
+layer2_N4 layer2_N4_inst (.M0(layer2_N4_wire), .M1(M1[9:8]));
+
+wire [13:0] layer2_N5_wire = {M0[57], M0[56], M0[41], M0[40], M0[27], M0[26], M0[19], M0[18], M0[11], M0[10], M0[9], M0[8], M0[5], M0[4]};
+layer2_N5 layer2_N5_inst (.M0(layer2_N5_wire), .M1(M1[11:10]));
+
+endmodule
