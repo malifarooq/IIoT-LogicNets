@@ -87,6 +87,9 @@ RUN conda install -y wget h5py pyyaml=5 numpy pandas scikit-learn tensorboard pr
 RUN pip install --no-cache-dir git+https://github.com/Xilinx/brevitas.git@67be9b58c1c63d3923cac430ade2552d0db67ba5
 # Install prerequisites for pyverilator
 RUN pip install --no-cache-dir pyverilator
+RUN pip install imblearn
+RUN pip install -U scikit-learn
+
 
 # Install LogicNets library - SKIP this step and install during entry-point
 #RUN git clone git@github.com:Xilinx/logicnets.git && \
